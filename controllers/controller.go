@@ -119,8 +119,8 @@ func UpdateUser(w http.ResponseWriter, r *http.Request, params martini.Params) {
 	address := r.Form.Get("address")
 	email := r.Form.Get("email")
 	password := r.Form.Get("password")
-	userType := r.Form.Get("userType")
-	result, errQuery := db.Exec("UPDATE users SET name=?, age=?, address=? , email=? , password=? , userType=? WHERE id=?",
+	userType, _ := strconv.Atoi(r.Form.Get("userType"))
+	result, errQuery := db.Exec("UPDATE users SET name=?, age=?, address=? , email=? , password=? , userType=? , WHERE ID=?",
 		name,
 		age,
 		address,
@@ -138,6 +138,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request, params martini.Params) {
 	user.Address = address
 	user.Email = email
 	user.Password = password
+	user.UserType = userType
 
 	if errQuery != nil {
 		SendResponse(w, "Query Error", 400)
@@ -149,7 +150,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request, params martini.Params) {
 		}
 	}
 
-	SendUserResponse(w, "Insert Success", 200, user)
+	SendUserResponse(w, "Update Success", 200, user)
 }
 
 func DeleteUser(w http.ResponseWriter, r *http.Request, params martini.Params) {

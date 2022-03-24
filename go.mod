@@ -11,4 +11,5 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/martini-contrib/render v0.0.0-20150707142108-ec18f8345a11
+	github.com/rs/cors v1.8.2
 )
