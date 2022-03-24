@@ -8,6 +8,7 @@ require github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirec
 
 require (
 	github.com/codegangsta/inject v0.0.0-20150114235600-33e0aa1cb7c0 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/martini-contrib/render v0.0.0-20150707142108-ec18f8345a11
 )
