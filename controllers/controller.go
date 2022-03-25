@@ -120,7 +120,8 @@ func UpdateUser(w http.ResponseWriter, r *http.Request, params martini.Params) {
 	email := r.Form.Get("email")
 	password := r.Form.Get("password")
 	userType, _ := strconv.Atoi(r.Form.Get("userType"))
-	result, errQuery := db.Exec("UPDATE users SET name=?, age=?, address=? , email=? , password=? , userType=? , WHERE ID=?",
+
+	result, errQuery := db.Exec("UPDATE users SET name=?, age=?, address=? , email=? , password=? , userType=? WHERE ID=?",
 		name,
 		age,
 		address,
@@ -131,6 +132,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request, params martini.Params) {
 	)
 
 	rowAffected, _ := result.RowsAffected()
+
 	var user User
 	user.ID, _ = strconv.Atoi(UserID)
 	user.Name = name

@@ -20,6 +20,7 @@ func main() {
 	m.Get("/users/getAllUsers", controllers.Authenticate(1), controllers.GetAllUsers)
 	m.Post("/users/insertNewUser", controllers.Authenticate(0), controllers.InsertNewUser)
 	m.Put("/users/updateUser/:id", controllers.Authenticate(1), controllers.UpdateUser)
+	// m.Put("/users/updateUser/:id", controllers.UpdateUser)
 	m.Delete("/users/deleteUser/:id", controllers.Authenticate(1), controllers.DeleteUser)
 
 	m.Post("/users/Login", controllers.LoginUser)
